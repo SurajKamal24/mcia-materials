@@ -1,1 +1,11 @@
-
+### Module 5 - Choosing appropriate message transformation and routing patterns
+ - Data types in REST API can be modeled using JSON/XML schema, RAML and OAS
+ - Anypoint Platform supports interoperability between RAML and OAS
+ - How to access and populate metadata for mule components
+ - Dataweave formats
+ - Dataweave can invoke flows, dataweave modules and java methods
+ - Java is not generally recommended for transformation. use dataweave instead. However an organization may want to call out to java to reuse a common object model and associated transformations written in java. Dataweave can invoke static methods of java classes. Mule java module can aslo create instance and invoke instance methods.
+ - Transformations using scripting: Groovy, Jruby(ruby), Jpython(python) and Nashron(javascript). Not recommended. Excessive use of scripting languages can affect maintainability and understandability.
+ - Message enrichment pattern - ways to preserve the previous event payload after an event processor executes - target variable
+ - Directly transformation data from one application to another application results in many mappings - O(N2) complexity. Build common (aka canonical) data model CDM - O(N) complexity, decouples multiple transformation steps
+ - Data validation pattern - avoid unexpected data errors that could crash downstream applications - validate events as early as possible - dataweave code, modules & connectors(validation module, xml & json schema validators, APIkit router, http request operation performs http response status code validation, java validate type), choice routers(validate without raising error) - all scope and any scope combine validation operations
