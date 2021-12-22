@@ -7,3 +7,6 @@
 
 ## Selecting integration styles
 **Modules** - 2,3,4,5,7
+
+## Designing and documenting enterprise integration architecture
+**Modules** - 1,3,7,8
