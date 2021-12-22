@@ -49,4 +49,15 @@
  -  Cache scope - Does not cache consumable payload such as non repeatable stream
  -  Watermark
  -  Idempotent message validator
- -  
+ 
+### Questions
+ - iPaaS deployment of runtime plane - cloudhub, cloudhub vpc, gov cloudhub, runtime fabric
+ - Sharing state in not possible in 
+ - No longer in the infrastructure hosting game - Cloudhub and runtime fabric
+ - Hosting of all infrastructure needs to be "in house" - Anypoint PCE
+ - Use case for batch
+ - Purpose of batch aggregator
+ - State get passed between batch steps
+ - Use cases and reasons for cloudhub DLB
+ - Batch over for each scope
+ - Deploy a mule runtime in your own data center rather than in cloudhub
