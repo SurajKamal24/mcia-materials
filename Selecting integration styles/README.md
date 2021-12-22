@@ -74,3 +74,10 @@
  - Anypoint runtime fabric - A clustered container service that automates and orchestrates the deployment of mule applications to private cloud infrastructure or on-premises data centers - Mule applications deployed to an isolated mule runtime in a docker container, requires the use of control plane hosted by mulesoft - Two deployment options - on VMs/Bare metal(also known as appliance model) and self managed kubernetes(AKS/EKS/GKE)
  - Cluster - A cluster is a set of mule applications that acts as a unit. Severs in a cluster communicate and share information through a Hazelcast-based distribution shared memory grid - Data is replicated across memory in different physical machines - All workers nodes work in the active-active model
 
+### Questions
+ - Event Driven Architecture
+ - Mule application communicate with a message broker
+ - Difference between publish & publish-consume
+ - Correlation ID
+ - Use cases for using correlation ID
+
