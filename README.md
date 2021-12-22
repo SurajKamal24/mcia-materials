@@ -10,3 +10,6 @@
 
 ## Designing and documenting enterprise integration architecture
 **Modules** - 1,3,7,8
+
+## Architecting resilient and performant integration solutions
+**Modules** - 5,7,8,11,12,13,14
