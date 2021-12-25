@@ -54,3 +54,10 @@
  - Bitronix is available as an XA transaction manager for mule applications. Each mule runtime can have only one instance of bitronix transaction manager, which is shared by all mule applications
  - SAGA pattern is an alternative to XA when resources are not XA-capable or XA is undesired. For instance API invocations. Event/choreography pattern and command/orchestration pattern
  - JMS acknowledgement - receipt of JMS message must be acknowledged. Unacknowledged messages are redelivered. Auto - automatic aknowledgement at the end of the flow or on error continue scope. Immediate - Automatic acknowledgement upon receipt and not redelivered if processing fails afterwards. Manual - use jms:ack operation. Dups_ok - Similar to auto, optimization as acknowledges messages lazily typically after delay or bulk. Application must handle duplicate message delivery
+
+### Module 12 - Designing for reliability goals
+ - Reliability aspires to have zero message/data loss after a mule application stops or crashes. A reliability pattern can be implemented to achieve reliability goals using until successful scope, reconnection strategies, redelivery policy, MULE:REDELIVERY_EXHAUSTED error type, transactions, error handling and first successful router
+ - Unitl successful scope repeatedly triggers the code within the scope until succeeds or until a maximum number of retries are exceeded. May fail for temporary reasons and may succeed upon retry. Re-executing permanent failures unneccessarily pollutes logs and delay returing failures
+ - System errors are thrown when a connection to an external system fails. To retry connection failures, mule connectors can set a connection strategy
+ - A redelivery policy can be configured on the event source to specify the number of the time the same event can be processed by the flow before raising a REDELIVERY_EXHAUSTED error. Can't be configured on the scheduler
+ - Reliability pattern for non-transactional system. Splits the processing between acquistion flow and processing flow using the persistent queues
