@@ -87,3 +87,7 @@
  - Performance features of common mule applications (Batch, scheduler and event/messaging queues)
  - Logging default to async for performance
  - HTTPS, JMS, Database, VM connectors
+
+### Questions
+ - Remote calls can be made more fault tolerant in a mule application - Until successful scope
+ - Implement a reliability pattern 
