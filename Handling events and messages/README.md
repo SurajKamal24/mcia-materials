@@ -1,0 +1,16 @@
+### Module 8 - Designing with appropriate state preservation and management options
+ - Ways mule application can maintian state - Mule event, object store, vm queues, batch job scope queues, file based persistence and external data store
+ - Object store is typically accessed via a object store connector. But an externalized object store implementation might provide other communication mechanisms, such as a secure REST connection. Configured as persistent or non-persistent
+ - Mule applications deployed to customer-hosted or runtime fabric could use the OSv2 REST API to access a cloudhub-deployed application's persistent object stores
+ - Private object store can be configured by a particular component in a mule application to hide its object store data from any other component in the mule application
+ - JMS, AMQP, Anypoint MQ or DB - More durable and more reliable state management option. Communication between multiple mule applications or with non-mule applications
+ -  File based persistence cloudhub - /tmp, runtime fabric - /tmp and customer hosted - /tmp and /otherDirs
+ -  External store - database, sftp server, redis, s3 bucket and external in-memory grid
+ -  Comparisons
+ -  OSV2 - unlimited keys, 10mb max value size. Preserved upon application redeployment and restarts. Deleted upon application deletion. 30 days and 10 TPS per app for free tier
+ -  Currently OSv2 uses dyanamo DB and vm queue uses amazon sqs
+ -  Customer hosted state management - Performance profile and reliable profile
+ -  Batch queue bypass the cluster-replication and do not use hazel cast
+ -  Cache scope - Does not cache consumable payload such as non repeatable stream
+ -  Watermark
+ -  Idempotent message validator
