@@ -61,3 +61,29 @@
  - System errors are thrown when a connection to an external system fails. To retry connection failures, mule connectors can set a connection strategy
  - A redelivery policy can be configured on the event source to specify the number of the time the same event can be processed by the flow before raising a REDELIVERY_EXHAUSTED error. Can't be configured on the scheduler
  - Reliability pattern for non-transactional system. Splits the processing between acquistion flow and processing flow using the persistent queues
+
+### Module 13 - Designing for high-availability goals
+ - High availability - How to keep the overall system operational when a system component failes. Usually acheived with multiple levels of fault tolerances and/or load balancing
+ - Disaster recovery - How to restore a system to a previous acceptable state after a natural or man-made disaster
+ - High availability can be acheived by horizontally scaling to multiple mule runtimes. HA goals for customer-hosted or runtime fabric can be met via load balancing and/or clustering. HA can be acheived using cloudhub multiple workers. Workers will be spread across different availability zones in the same AWS region. Mule application data can be shared between workers using the object store v2 service and vm queues with persistent queues enabled in the runtime manager
+ - HTTPS request are load balanced automatically through shared or dedicated load balancers
+ - In cloudhub, each persistent vm queue is listened by multiple cloudhub workers. But each message is read and processed atleast once by only one cloudhub worker and duplicate processing is possible. Persistent queues do not guarantee one-time-only message delivery. Duplicate messages may be sent
+ - Runtime manager can define server groups or cluster. Server groups is just an administrative grouping of isolated mule runtimes. A cluster provides additional guarantees to prevent contention between the mule runtime
+ - Unclustered load balancing for HA and performance in customer-hosted runtime planes
+ - Cluster is a set of customer hosted mule runtimes that acts as a unit. Servers in a cluster communicate through a distributed shared memory grid. All clusters nodes work in active-active mode and there is a primary node where schedulers, jms listeners etc run
+ - A cluster can be tuned to be either performant or reliable. Clusters are either unicast or multicast. Cluster uses hazelcast to create a distributed shared memory grid
+ - Ngnix and apache web server - third party load balancers for customer-hosted mule runtime
+ - Runtime fabric has docker/k8s managed load balancer
+ - Load balancing for https, vm(cluster and standalone), jms
+ - Kubernetes cluster
+
+### Module 14 - Optimizing the performance of deployed mule applications
+ - Performance goals are atleast partially dictated by service level aggrements. It is important to not to over-optimize and aim to vastly exceed the performance goals
+ - Use application performance monitoring tools, including the anypoint platform dashboards, visual vm/jconsole or similar. Commerial tools like app dynamics, new relic etc
+ - Application profiling in mule applications is often performed for memory issues and application unresponsiveness
+ - Scaling options, network communication and protocols
+ - A mule application can be scaled out to a maximum of eight workers and/or scaled up to sixteen vcores
+ - Configuring autoscaling in cloudhub(ELA customers only)
+ - Performance features of common mule applications (Batch, scheduler and event/messaging queues)
+ - Logging default to async for performance
+ - HTTPS, JMS, Database, VM connectors
