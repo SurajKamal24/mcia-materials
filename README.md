@@ -13,3 +13,6 @@
 
 ## Architecting resilient and performant integration solutions
 **Modules** - 5,7,8,11,12,13,14
+
+## Handling events and messages
+**Modules** - 8,9,12,13,14
