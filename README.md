@@ -16,3 +16,6 @@
 
 ## Handling events and messages
 **Modules** - 8,9,12,13,14
+
+## Designing application with anypoint connectors
+**Modules** - 2,3,4,8,10,12
