@@ -19,3 +19,6 @@
 
 ## Designing application with anypoint connectors
 **Modules** - 2,3,4,8,10,12
+
+## Designing network for anypoint connectors
+**Modules** - 3,7,8,15,16
