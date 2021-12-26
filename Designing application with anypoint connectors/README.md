@@ -49,14 +49,6 @@
  - For each scope, parallel for each scope and batch job.
  - Batch job - Persistent queues- Records always procceeds batch steps in order. Later records can jump ahead to the next batch step while earlier records are still being processed by another thread in the previous batch step. Accept expression, accept policy and variables. Batch aggregator. Payload after the completion of the batch job is BatchJobResult object
 
-### Module 10 - Designing an efficient and automated software development lifecycle
- - Runtime manager properties tab can override values set in properties files. The properties tab is available for both mulesoft-hosted and customer-hosted runtime plane targets
- - System level properties can be set in the wrapper.config file or from the command line when starting the mule runtime
- - External configuration files make mule application easier to migrate and update. Can externalize property file outside the mule runtime for customer hosted mule runtime. External configuration systems can also be used but require more work to set up and manage - Hashicorp vault, Azure vault and spring cloud config
- - Properties hierarchy - Deployment > System > Environment > Application > Global
- - Mule maven plugin - Automate building, packaging and deployment of mule applications from source projects. Munit maven plugin - Automate test execution and ties in with the mule maven plugin. compile > test > package > install > deploy
- - Automation on Anypoint Platform - Anypoint CLI and Anypoint Platform APIs
-
 ### Module 8 - Designing with appropriate state preservation and management options
  - Ways mule application can maintian state - Mule event, object store, vm queues, batch job scope queues, file based persistence and external data store
  - Object store is typically accessed via a object store connector. But an externalized object store implementation might provide other communication mechanisms, such as a secure REST connection. Configured as persistent or non-persistent
@@ -74,6 +66,14 @@
  -  Watermark
  -  Idempotent message validator
 
+### Module 10 - Designing an efficient and automated software development lifecycle
+ - Runtime manager properties tab can override values set in properties files. The properties tab is available for both mulesoft-hosted and customer-hosted runtime plane targets
+ - System level properties can be set in the wrapper.config file or from the command line when starting the mule runtime
+ - External configuration files make mule application easier to migrate and update. Can externalize property file outside the mule runtime for customer hosted mule runtime. External configuration systems can also be used but require more work to set up and manage - Hashicorp vault, Azure vault and spring cloud config
+ - Properties hierarchy - Deployment > System > Environment > Application > Global
+ - Mule maven plugin - Automate building, packaging and deployment of mule applications from source projects. Munit maven plugin - Automate test execution and ties in with the mule maven plugin. compile > test > package > install > deploy
+ - Automation on Anypoint Platform - Anypoint CLI and Anypoint Platform APIs
+
 ### Module 12 - Designing for reliability goals
  - Reliability aspires to have zero message/data loss after a mule application stops or crashes. A reliability pattern can be implemented to achieve reliability goals using until successful scope, reconnection strategies, redelivery policy, MULE:REDELIVERY_EXHAUSTED error type, transactions, error handling and first successful router
  - Unitl successful scope repeatedly triggers the code within the scope until succeeds or until a maximum number of retries are exceeded. May fail for temporary reasons and may succeed upon retry. Re-executing permanent failures unneccessarily pollutes logs and delay returing failures
@@ -81,4 +81,7 @@
  - A redelivery policy can be configured on the event source to specify the number of the time the same event can be processed by the flow before raising a REDELIVERY_EXHAUSTED error. Can't be configured on the scheduler
  - Reliability pattern for non-transactional system. Splits the processing between acquistion flow and processing flow using the persistent queues
 
+### Questions
+ - How could a mule application kickoff processing when a file is created - On new or updated file
+ - What is watermark and where its stored
 
