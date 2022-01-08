@@ -47,4 +47,20 @@
  -  Idempotent message validator
 
 ### Module 15 - Designing secure mule applications and deployments
- - Anypoint platform security areas and features
+ - Organization owner - First user signs up for an anypoint platform account. Inhertis organization administrator permission by default and has every possible permission for org and child business groups
+ - Organization has one or more IdPs for identity management or none (anypoint platform performs idendity management)
+ - Organization can contain child business groups. Each business group has an owner with full administrative privileges to that business group and its child business groups but not to parent business groups
+ - Teams are group of users. Replacement of roles
+ - Permissions limits or allow access to various anypoint platform features. Users are assigned permissions using teams or roles(deprecated), or by granting permissions individually
+ - Every anypoint platform username is assigned to exactly one anypoint platform organization
+ - For user management, one or more external IdPs can be integrated with the anypoint platform organization. Permission and access control are still enforced inside anypoint platform. One external IdP is required to configure OAuth policy on an API instance. IdPs must be configured at the organization level before including them based on environments, business groups or APIs
+ - Identity Management OpenID connect(salesforce, pingfederate, openam, okta) - end user identity verification by an IdP including SSO. SAML 2.0(salesforce, pingfederate, openam, okta) - web-based authorization using cross-domain SSO
+ - Client Management External IdPs - can apply OAuth 2.0 policy to authorize API client applications. OAuth providers - pingfederate, openam, open id connect dynamic client registration (OIDC DCR). can configure multiple client providers and map them with different environments
+ - External access feature - sharing assets from one organization to another. Can only read and not update or manager
+ - Connected Apps - 
+ - Mule runtime security
+ - Anypoint runtime fabric - Variant of the customer-hosted runtime plane managed by mulesoft-hosted control plane
+ - Secure communication. Symmetric crytography - client and server share the same key to encrypt/decrypt. Asymmetric cryptography - Server issues a public key to the client, allowing it to encrypt the message. Server keeps a private key, which is the only key that can decrypt the message. one key to lock the message and another key to unlock it
+ - Digital certificates - uses public/private key certificates signed by trusted authority or self signed for communications
+ - API policies - when a policy is configured in the API manager, the policy is downloaded to the connected API gateway or mule runtime, inside a policies folder. The policies are then injected into the API proxy or mule app
+ - 
